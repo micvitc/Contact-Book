@@ -26,7 +26,7 @@ Repo Link: <https://github.com/micvitc/Contact-Book/>
 - App Dev:
   - Flutter
   - Http
-  - flutter\_bloc
+  - get
 
 - WorkFlow and Requirements:
 
@@ -34,6 +34,8 @@ Repo Link: <https://github.com/micvitc/Contact-Book/>
   - Initialize the environment setups and Initial Flask App to Display “Hello World”
   - Start Constructing models or schemas for database .
   - Database Tentative Structure:
+      ![Untitled](https://user-images.githubusercontent.com/65313257/236989561-5722353e-93ea-45f8-baf2-7ed1badcca9a.png)
+
   - Writing RESTful APIs for the same model with proper endpoints.
   - Admin Panel for adding in details of faculties from backend.
 
