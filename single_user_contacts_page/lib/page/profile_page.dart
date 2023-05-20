@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:user_profile_example/model/user.dart';
-import 'package:user_profile_example/utils/user_preferences.dart';
-import 'package:user_profile_example/widget/appbar_widget.dart';
-import 'package:user_profile_example/widget/button_widget.dart';
-import 'package:user_profile_example/widget/numbers_widget.dart';
-import 'package:user_profile_example/widget/profile_widget.dart';
+import 'package:single_user_contacts_page/model/user.dart';
+import 'package:single_user_contacts_page/utils/user_preferences.dart';
+import 'package:single_user_contacts_page/widget/appbar_widget.dart';
+import 'package:single_user_contacts_page/widget/button_widget.dart';
+import 'package:single_user_contacts_page/widget/numbers_widget.dart';
+import 'package:single_user_contacts_page/widget/profile_widget.dart';
 
 class ProfilePage extends StatefulWidget {
   @override

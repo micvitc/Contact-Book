@@ -1,4 +1,4 @@
-import 'package:user_profile_example/model/user.dart';
+import 'package:single_user_contacts_page/model/user.dart';
 
 class UserPreferences {
   static const myUser = User(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:user_profile_example/page/profile_page.dart';
+import 'package:single_user_contacts_page/page/profile_page.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
