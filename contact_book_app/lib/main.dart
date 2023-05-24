@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-
+import 'package:contact_book_app/controller/main_page_controller.dart';
 void main() {
   runApp(ContactBookApp());
 }
 
 class ContactBookApp extends StatelessWidget {
+  final ContactController _contactController=ContactController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Contact Book',
+      title: 'VIT Contact Book',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
