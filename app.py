@@ -48,7 +48,7 @@ def add_contact():
     description= request.json['description'] 
     school = request.json['school']  
 
-    new_contact = Contact(name=name, email=email)
+    new_contact = Contact(name=name, email=email, phone_num=phone_num,designation=designation,description=description, school=school)
     db.session.add(new_contact)
     db.session.commit()
     return jsonify({'message': 'Contact added successfully'}) 
@@ -59,7 +59,3 @@ if __name__ == '__main__':
 
 
 
-
-if __name__ == '__main__':
-    db.create_all()
-    app.run(debug=True)
