@@ -16,7 +16,8 @@ class Contact(db.Model):
    email = db.Column(db.String(200))
    designation = db.Column(db.String(10))  
    description = db.Column(db.String(400)) 
-   school = db.Column(db.String(100))
+   school = db.Column(db.String(100)) 
+
 
 class ContactSchema(marsh.SQLAlchemyAutoSchema):
     class Meta:
@@ -30,14 +31,14 @@ class ContactSchema(marsh.SQLAlchemyAutoSchema):
     school = marsh.auto_field() 
 author_schema = ContactSchema()
 
+contact = Contact(id=1, name='John Doe', phone_num='1234567890', email='john@example.com', designation='Developer', description='Lorem ipsum', school='ABC School')
+serialized_contact = author_schema.dump(contact)
 
 
 @app.route('/contacts', methods=['GET'])
 def get_contacts():
-    contacts = Contact.query.all()
-    contact_schema = ContactSchema(many=True)
-    result = contact_schema.dump(contacts)
-    return jsonify(result) 
+    serialized_contact = author_schema.dump(contact)
+    return jsonify(serialized_contact)
 
 @app.route('/contacts', methods=['POST'])
 def add_contact():
@@ -53,8 +54,9 @@ def add_contact():
     db.session.commit()
     return jsonify({'message': 'Contact added successfully'}) 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == '__main__': 
+    db.create_all()
+    app.run(debug=True) 
 
 
 
