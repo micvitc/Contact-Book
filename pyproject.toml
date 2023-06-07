@@ -16,6 +16,8 @@ flask-sqlalchemy = "^3.0.3"
 mongoengine = "^0.27.0"
 flask-mongoengine = "^1.0.0"
 certifi = "^2023.5.7"
+flask-marshmallow = "^0.15.0"
+marshmallow-sqlalchemy = "^0.29.0"
 
 
 [build-system]
