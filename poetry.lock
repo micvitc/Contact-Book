@@ -28,6 +28,18 @@ files = [
 ]
 
 [[package]]
+name = "certifi"
+version = "2023.5.7"
+description = "Python package for providing Mozilla's CA Bundle."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "certifi-2023.5.7-py3-none-any.whl", hash = "sha256:c6c2e98f5c7869efca1f8916fed228dd91539f9f1b444c314c06eef02980c716"},
+    {file = "certifi-2023.5.7.tar.gz", hash = "sha256:0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"},
+]
+
+[[package]]
 name = "click"
 version = "8.1.3"
 description = "Composable command line interface toolkit"
@@ -76,6 +88,22 @@ trio = ["trio (>=0.14,<0.23)"]
 wmi = ["wmi (>=1.5.1,<2.0.0)"]
 
 [[package]]
+name = "email-validator"
+version = "2.0.0.post2"
+description = "A robust email address syntax and deliverability validation library."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "email_validator-2.0.0.post2-py3-none-any.whl", hash = "sha256:2466ba57cda361fb7309fd3d5a225723c788ca4bbad32a0ebd5373b99730285c"},
+    {file = "email_validator-2.0.0.post2.tar.gz", hash = "sha256:1ff6e86044200c56ae23595695c54e9614f4a9551e0e393614f764860b3d7900"},
+]
+
+[package.dependencies]
+dnspython = ">=2.0.0"
+idna = ">=2.0.0"
+
+[[package]]
 name = "flask"
 version = "2.3.2"
 description = "A simple framework for building complex web applications."
@@ -97,6 +125,24 @@ Werkzeug = ">=2.3.3"
 [package.extras]
 async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
+
+[[package]]
+name = "flask-mongoengine"
+version = "1.0.0"
+description = "Flask-MongoEngine is a Flask extension that provides integration with MongoEngine and WTF model forms."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "flask-mongoengine-1.0.0.tar.gz", hash = "sha256:ce68726d2be8d88006e88f17e4be3b7ad07c79ca8dedb60653d3dab5d9485840"},
+    {file = "flask_mongoengine-1.0.0-py3-none-any.whl", hash = "sha256:2db13140ce7f61a935e75268190450d5ecc9b60a7310fd289f9511835aa105d4"},
+]
+
+[package.dependencies]
+Flask = ">=1.1.2"
+Flask-WTF = ">=0.14.3"
+mongoengine = ">=0.20"
+WTForms = {version = ">=2.3.1", extras = ["email"]}
 
 [[package]]
 name = "flask-pymongo"
@@ -134,6 +180,42 @@ six = ">=1.3.0"
 
 [package.extras]
 docs = ["sphinx"]
+
+[[package]]
+name = "flask-sqlalchemy"
+version = "3.0.3"
+description = "Add SQLAlchemy support to your Flask application."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "Flask-SQLAlchemy-3.0.3.tar.gz", hash = "sha256:2764335f3c9d7ebdc9ed6044afaf98aae9fa50d7a074cef55dde307ec95903ec"},
+    {file = "Flask_SQLAlchemy-3.0.3-py3-none-any.whl", hash = "sha256:add5750b2f9cd10512995261ee2aa23fab85bd5626061aa3c564b33bb4aa780a"},
+]
+
+[package.dependencies]
+Flask = ">=2.2"
+SQLAlchemy = ">=1.4.18"
+
+[[package]]
+name = "flask-wtf"
+version = "1.1.1"
+description = "Form rendering, validation, and CSRF protection for Flask with WTForms."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "Flask-WTF-1.1.1.tar.gz", hash = "sha256:41c4244e9ae626d63bed42ae4785b90667b885b1535d5a4095e1f63060d12aa9"},
+    {file = "Flask_WTF-1.1.1-py3-none-any.whl", hash = "sha256:7887d6f1ebb3e17bf648647422f0944c9a469d0fcf63e3b66fb9a83037e38b2c"},
+]
+
+[package.dependencies]
+Flask = "*"
+itsdangerous = "*"
+WTForms = "*"
+
+[package.extras]
+email = ["email-validator"]
 
 [[package]]
 name = "greenlet"
@@ -208,6 +290,18 @@ files = [
 [package.extras]
 docs = ["Sphinx", "docutils (<0.18)"]
 test = ["objgraph", "psutil"]
+
+[[package]]
+name = "idna"
+version = "3.4"
+description = "Internationalized Domain Names in Applications (IDNA)"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "idna-3.4-py3-none-any.whl", hash = "sha256:90b77e79eaa3eba6de819a0c442c0b4ceefc341a7a2ab77d7562bf49f425c5c2"},
+    {file = "idna-3.4.tar.gz", hash = "sha256:814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"},
+]
 
 [[package]]
 name = "itsdangerous"
@@ -298,6 +392,21 @@ files = [
     {file = "MarkupSafe-2.1.2-cp39-cp39-win_amd64.whl", hash = "sha256:0576fe974b40a400449768941d5d0858cc624e3249dfd1e0c33674e5c7ca7aed"},
     {file = "MarkupSafe-2.1.2.tar.gz", hash = "sha256:abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"},
 ]
+
+[[package]]
+name = "mongoengine"
+version = "0.27.0"
+description = "MongoEngine is a Python Object-Document Mapper for working with MongoDB."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "mongoengine-0.27.0-py3-none-any.whl", hash = "sha256:c3523b8f886052f3deb200b3218bcc13e4b781661e3bea38587cc936c80ea358"},
+    {file = "mongoengine-0.27.0.tar.gz", hash = "sha256:8f38df7834dc4b192d89f2668dcf3091748d12f74d55648ce77b919167a4a49b"},
+]
+
+[package.dependencies]
+pymongo = ">=3.4,<5.0"
 
 [[package]]
 name = "pymongo"
@@ -526,7 +635,26 @@ MarkupSafe = ">=2.1.1"
 [package.extras]
 watchdog = ["watchdog (>=2.3)"]
 
+[[package]]
+name = "wtforms"
+version = "3.0.1"
+description = "Form validation and rendering for Python web development."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "WTForms-3.0.1-py3-none-any.whl", hash = "sha256:837f2f0e0ca79481b92884962b914eba4e72b7a2daaf1f939c890ed0124b834b"},
+    {file = "WTForms-3.0.1.tar.gz", hash = "sha256:6b351bbb12dd58af57ffef05bc78425d08d1914e0fd68ee14143b7ade023c5bc"},
+]
+
+[package.dependencies]
+email-validator = {version = "*", optional = true, markers = "extra == \"email\""}
+MarkupSafe = "*"
+
+[package.extras]
+email = ["email-validator"]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "bdbf6da095cc450b8029068f944dd6aff863a3d76a96fd109781102d6ea6f9c4"
+content-hash = "1ff8eaffbfb713906606e33073b3706291c07657632a6e5a59e60e7ba8ff3976"
