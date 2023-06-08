@@ -43,6 +43,13 @@ def get_contacts():
     result = contact_schema.dump(contacts)
     return jsonify(result)
 
+@app.route('/contacts/<int:id>', methods=['GET'])
+def get_contacts_by_id(id):
+    contact = Contact.query.filter(Contact.id==id).first()
+    contact_schema = ContactSchema(many=False)
+    result = contact_schema.dump(contact)
+    return jsonify(result)
+
 
 # @app.route('/contacts', methods=['GET'])
 #def get_contacts():
