@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:contact_book_app/controller/main_page_controller.dart';
+import 'package:contact_book_app/controller/profile_page.dart';
+
 void main() {
   runApp(ContactBookApp());
 }
@@ -91,33 +93,42 @@ class ContactCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      child: ListTile(
-        leading: CircleAvatar(
-          backgroundColor: Colors.blue,
-          child: Text(
-            name.substring(0, 1).toUpperCase(),
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+        margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        child: ListTile(
+          leading: CircleAvatar(
+            backgroundColor: Colors.blue,
+            child: Text(
+              name.substring(0, 1).toUpperCase(),
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-        ),
-        title: Text(name),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(designation),
-            Text(number),
-            Text(email),
-            Text(cabin),
-          ],
-        ),
-        trailing: Icon(Icons.call),
-        onTap: () {
-          // Handle contact tap
-        },
-      ),
+          title: Text(name),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(designation),
+              Text(number),
+              Text(email),
+              Text(cabin),
+            ],
+          ),
+          trailing: Icon(Icons.call),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProfilePage(name: name,
+                  designation: designation,
+                  number: number,
+                  email: email,
+                  cabin: cabin,),
+              ),
+            );
+          },
+        )
     );
   }
 }
