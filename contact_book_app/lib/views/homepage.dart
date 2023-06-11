@@ -1,6 +1,10 @@
+import 'package:contact_book_app/models/main_page_model.dart';
 import 'package:flutter/material.dart';
+import 'package:contact_book_app/controllers/main_page_controller.dart';
 
 class HomePage extends StatelessWidget {
+  final ContactController contactController = ContactController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +26,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ContactList(),
+            child: ContactList(contactController: contactController),
           ),
         ],
       ),
@@ -30,7 +34,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class ContactList extends StatelessWidget {
+/*class ContactList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -51,6 +55,42 @@ class ContactList extends StatelessWidget {
         ),
         // Add more contacts here...
       ],
+    );
+  }
+}*/
+
+
+class ContactList extends StatelessWidget {
+  final ContactController contactController;
+
+  const ContactList({required this.contactController});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<List<Contact>>(
+      future: contactController.fetchContacts(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(child: Text('Error: ${snapshot.error}'));
+        } else {
+          final contacts = snapshot.data ?? [];
+          return ListView.builder(
+            itemCount: contacts.length,
+            itemBuilder: (context, index) {
+              final contact = contacts[index];
+              return ContactCard(
+                name: contact.name,
+                designation: contact.designation,
+                number: contact.mobileNumber,
+                email: contact.email,
+                cabin: contact.cabin,
+              );
+            },
+          );
+        }
+      },
     );
   }
 }
