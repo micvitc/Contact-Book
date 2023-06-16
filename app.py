@@ -18,7 +18,8 @@ class Contact(db.Model):
    email = db.Column(db.String(200))
    designation = db.Column(db.String(10))  
    description = db.Column(db.String(400)) 
-   school = db.Column(db.String(100)) 
+   school = db.Column(db.String(100))  
+   cabin_num= db.Column(db.String(100))
 
 
 class ContactSchema(marsh.SQLAlchemyAutoSchema):
@@ -30,11 +31,12 @@ class ContactSchema(marsh.SQLAlchemyAutoSchema):
     email = marsh.auto_field()
     designation = marsh.auto_field() 
     description= marsh.auto_field()
-    school = marsh.auto_field() 
+    school = marsh.auto_field()  
+    cabin_num= marsh.auto_field()
 author_schema = ContactSchema()
 
-#contact = Contact(id=1, name='John Doe', phone_num='1234567890', email='john@example.com', designation='Developer', description='Lorem ipsum', school='ABC School')
-#serialized_contact = author_schema.dump(contact)
+contact = Contact(id=1, name='John Doe', phone_num='1234567890', email='john@example.com', designation='Developer', description='Lorem ipsum', school='ABC School', cabin_num='AB2-301')
+serialized_contact = author_schema.dump(contact)
 
 @app.route('/contacts', methods=['GET'])
 def get_contacts():
@@ -67,9 +69,10 @@ def add_contact():
         phone_num = contact_data['phone_num']
         designation = contact_data['designation']
         description = contact_data['description']
-        school = contact_data['school']
+        school = contact_data['school'] 
+        cabin_num= contact_data['cabin_num']
 
-        new_contact = Contact(name=name, email=email, phone_num=phone_num, designation=designation, description=description, school=school)
+        new_contact = Contact(name=name, email=email, phone_num=phone_num, designation=designation, description=description, school=school, cabin_num=cabin_num)
         db.session.add(new_contact)
 
     db.session.commit()
@@ -79,7 +82,6 @@ def add_contact():
 if __name__ == '__main__': 
     db.create_all()
     app.run(debug=True) 
-
 
 
 
